@@ -6,6 +6,7 @@ function [X_norm, mu, sigma] = featureNormalize(X)
 %   working with learning algorithms.
 
 mu = mean(X);
+%well whatever the hell bsxfun is
 X_norm = bsxfun(@minus, X, mu);
 
 sigma = std(X_norm);

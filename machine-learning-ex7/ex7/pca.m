@@ -1,6 +1,6 @@
 function [U, S] = pca(X)
 %PCA Run principal component analysis on the dataset X
-%   [U, S, X] = pca(X) computes eigenvectors of the covariance matrix of X
+%   [U, S] = pca(X) computes eigenvectors of the covariance matrix of X
 %   Returns the eigenvectors U, the eigenvalues (on diagonal) in S
 %
 
@@ -20,7 +20,13 @@ S = zeros(n);
 %       number of examples).
 %
 
+%Sigma here is the covariance matrix of the data X (don't ask me what that means, the teacher
+% said the math here is complicated and it's not too important to understand for now)
+%TODO:: take a linear algebra class refresher & advanced
+Sigma = (1/m)*X'*X;
 
+%use SVD to compute the principal components (ditto above)
+[U, S, V] = svd(Sigma);
 
 
 
